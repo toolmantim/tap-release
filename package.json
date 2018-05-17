@@ -1,0 +1,33 @@
+{
+  "name": "homebrew-tap-release-bot",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
+  "license": "ISC",
+  "repository": "https://github.com/toolmantim/homebrew-tap-release-bot.git",
+  "scripts": {
+    "dev": "nodemon --exec \"npm start\"",
+    "start": "probot run ./index.js",
+    "lint": "standard --fix",
+    "test": "jest && standard",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage",
+    "simulate": "probot simulate release test/fixtures/release.published.json ./index.js"
+  },
+  "dependencies": {
+    "probot": "^6.0.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.2",
+    "smee-client": "^1.0.1",
+    "standard": "^10.0.3"
+  },
+  "engines": {
+    "node": ">= 8.3.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
