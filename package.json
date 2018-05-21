@@ -1,10 +1,10 @@
 {
-  "name": "homebrew-tap-release-bot",
+  "name": "homebrew-release-bot",
   "version": "1.0.0",
   "description": "",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
   "license": "ISC",
-  "repository": "https://github.com/toolmantim/homebrew-tap-release-bot.git",
+  "repository": "https://github.com/toolmantim/homebrew-tap-bot.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
     "start": "probot run ./index.js",
@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "compare-versions": "^3.2.1",
-    "probot": "^6.0.0"
+    "probot": "^6.0.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "jest": "^22.4.3",

@@ -1,10 +1,33 @@
-const configPath = '.github/homebrew-tap-release.yml'
+const configName = 'homebrew-release.yml'
+const configPath = `.github/${configName}`
 
+const crypto = require('crypto')
 const compareVersions = require('compare-versions')
+const request = require('request')
 
 module.exports = robot => {
+  const urlHash = (url) => {
+    robot.log(`Calculating sha256 hash of ${url}`)
+    return new Promise((resolve, reject) =>
+      request
+        .get(url)
+        .on('error', reject)
+        .pipe(crypto.createHash('sha256').setEncoding('hex'))
+        .once('finish', function () {
+          resolve(this.read())
+        })
+    )
+  }
+
+  const updateTemplate = async (template, prefix, version, url) => (
+    template
+      .replace(`\${${prefix}_VERSION}`, version)
+      .replace(`\${${prefix}_URL}`, url)
+      .replace(`\${${prefix}_SHA256}`, await urlHash(url))
+  )
+
   const run = async context => {
-    const { asset, tap, template } = await context.config('homebrew-tap-release.yml', {})
+    const { asset, tap, template } = await context.config(configName, {})
     const [ owner, repo, path ] = tap && tap.split('/')
 
     if (!asset || !owner || !repo || !path || !template) {
@@ -22,27 +45,31 @@ module.exports = robot => {
     const latestStable = releases.filter(release => !release.prerelease)[0]
     const latestPrerelease = releases.filter(release => release.prerelease)[0]
 
-    console.log({ latestStable, latestPrerelease })
+    let renderedTemplate = template
 
-    // TODO: gsub the following
-    //   $STABLE_URL
-    //   $STABLE_VERSION
-    //   $STABLE_SHA256
-    //   $DEVEL_URL
-    //   $DEVEL_VERSION
-    //   $DEVEL_SHA256
+    if (latestStable) {
+      const stableAsset = latestStable.assets.find(a => a.name === asset)
+      if (stableAsset) {
+        renderedTemplate = await updateTemplate(renderedTemplate, 'STABLE', latestStable.tag_name, stableAsset.browser_download_url)
+      }
+    }
+
+    if (latestPrerelease) {
+      const prereleaseAsset = latestPrerelease.assets.find(a => a.name === asset)
+      if (prereleaseAsset) {
+        renderedTemplate = await updateTemplate(renderedTemplate, 'DEVEL', latestPrerelease.tag_name, prereleaseAsset.browser_download_url)
+      }
+    }
 
     robot.log(`Updating ${owner}/${repo}/${path}`)
-
-    const existingFile = await context.github.repos.getContent({ owner, repo, path })
 
     await context.github.repos.updateFile({
       owner,
       repo,
       path,
       message: `Updated ${path} formula`,
-      content: Buffer.from(template).toString('base64'),
-      sha: existingFile.data.sha
+      content: Buffer.from(renderedTemplate).toString('base64'),
+      sha: (await context.github.repos.getContent({ owner, repo, path })).data.sha
     })
 
     robot.log(`Updated ${owner}/${repo}/${path}`)

@@ -3,7 +3,7 @@ const app = require('../index')
 const payload = require('./fixtures/release')
 const draftPayload = require('./fixtures/release-draft')
 
-describe('homebrew-tap-release-bot', () => {
+describe('homebrew-tap-bot', () => {
   let robot
   let github
 
@@ -16,7 +16,8 @@ describe('homebrew-tap-release-bot', () => {
         getContent: jest.fn().mockReturnValueOnce(Promise.resolve({
           data: {
             content: Buffer.from(`
-              tap: toolmantim/homebrew-tap-release-bot-test-project-tap/some-tool.rb
+              asset: file.zip
+              tap: toolmantim/homebrew-tap-bot-test-project-tap/some-tool.rb
               template: >
                 class TestTool < Formula
                   homepage "https://github.com/toolmantim/bksr"
@@ -25,7 +26,7 @@ describe('homebrew-tap-release-bot', () => {
                   sha256 "\${STABLE_SHA256}"
               
                   def install
-                    prefix.install "giphy.gif"
+                    prefix.install "bksr-macos.zip"
                   end
                 end
             `).toString('base64')
@@ -49,7 +50,7 @@ describe('homebrew-tap-release-bot', () => {
 
       expect(github.repos.getContent).toBeCalledWith({
         owner: 'toolmantim',
-        repo: 'homebrew-tap-release-bot-test-project',
+        repo: 'homebrew-tap-bot-test-project',
         path: '.github/homebrew-tap-release.yml'
       })
     })
@@ -61,7 +62,7 @@ describe('homebrew-tap-release-bot', () => {
 
       expect(github.repos.getContent).toBeCalledWith({
         owner: 'toolmantim',
-        repo: 'homebrew-tap-release-bot-test-project',
+        repo: 'homebrew-tap-bot-test-project',
         path: '.github/homebrew-tap-release.yml'
       })
     })
@@ -73,7 +74,7 @@ describe('homebrew-tap-release-bot', () => {
 
       expect(github.repos.getContent).toBeCalledWith({
         owner: 'toolmantim',
-        repo: 'homebrew-tap-release-bot-test-project',
+        repo: 'homebrew-tap-bot-test-project',
         path: '.github/homebrew-tap-release.yml'
       })
     })
