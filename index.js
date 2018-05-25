@@ -1,5 +1,5 @@
 const run = require('./lib/run')
-const configName = 'homebrew-release.yml'
+const configName = 'brew-bot.yml'
 
 module.exports = robot => {
   robot.on('release', async context => {

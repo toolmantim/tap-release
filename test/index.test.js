@@ -3,7 +3,7 @@ const app = require('../index')
 const config = require('./fixtures/config')
 const payload = require('./fixtures/release')
 
-describe('homebrew-release-bot', () => {
+describe('brew-bot', () => {
   let robot
   let github
 
@@ -40,7 +40,7 @@ describe('homebrew-release-bot', () => {
         expect(github.repos.getContent).toBeCalledWith({
           owner: 'toolmantim',
           repo: 'homebrew-tap-bot-test-project',
-          path: '.github/homebrew-release.yml'
+          path: '.github/brew-bot.yml'
         })
 
         expect(github.repos.getReleases).not.toHaveBeenCalled()
@@ -58,7 +58,7 @@ describe('homebrew-release-bot', () => {
           expect(github.repos.getContent).toBeCalledWith({
             owner: 'toolmantim',
             repo: 'homebrew-tap-bot-test-project',
-            path: '.github/homebrew-release.yml'
+            path: '.github/brew-bot.yml'
           })
 
           expect(github.repos.getReleases).toHaveBeenCalled()

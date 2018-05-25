@@ -1,12 +1,14 @@
-# Homebrew Release Bot
+<h1 align="center">
+  <img src="design/logo.svg" alt="Brew Bot Logo" width="300" />
+</h1>
 
-A GitHub app that listens out for new releases, and automatically updates a Homebrew tap.
+Automatically update your Homebrew tap whenever you cut a new release.
 
 > Built with [probot](https://github.com/probot/probot)
 
 ## Usage
 
-In the repo that creates releases, create a `.github/homebrew-release.yml` file:
+In the repo that creates releases, create a `.github/brew-bot.yml` file:
 
 ```yml
 asset: my-tool.zip
