@@ -24,7 +24,7 @@ template: >
   end
 ```
 
-Whenever a new release containing a my-tool.zip asset is published to GitHub, the given tap will be updated using the template.
+Whenever a new release containing a `app.zip` asset is published, Brew Bot will regenerate the tap’s formula file using the template.
 
 ## Developing
 
