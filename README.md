@@ -2,7 +2,7 @@
   <img src="design/logo.svg" alt="Brew Bot Logo" width="300" />
 </h1>
 
-<p align="center">Automatically update your Homebrew tap whenever you cut a new release. Built with <a href="https://github.com/probot/probot">probot</a></p>
+<p align="center">Automatically update Homebrew taps when you publish new releases. Built with <a href="https://github.com/probot/probot">Probot</a>.</p>
 
 ## Usage
 
