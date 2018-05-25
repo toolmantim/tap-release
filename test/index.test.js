@@ -3,10 +3,6 @@ const app = require('../index')
 const config = require('./fixtures/config')
 const payload = require('./fixtures/release')
 
-process.on('unhandledRejection', (reason, p) => {
-  console.log('Unhandled Rejection at:', p, 'reason:', reason)
-})
-
 describe('homebrew-release-bot', () => {
   let robot
   let github
