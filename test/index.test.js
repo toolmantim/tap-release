@@ -1,9 +1,13 @@
 const { createRobot } = require('probot')
 const app = require('../index')
+const config = require('./fixtures/config')
 const payload = require('./fixtures/release')
-const draftPayload = require('./fixtures/release-draft')
 
-describe('homebrew-tap-bot', () => {
+process.on('unhandledRejection', (reason, p) => {
+  console.log('Unhandled Rejection at:', p, 'reason:', reason)
+})
+
+describe('homebrew-release-bot', () => {
   let robot
   let github
 
@@ -11,71 +15,59 @@ describe('homebrew-tap-bot', () => {
     robot = createRobot({})
     app(robot)
 
+    // Default mock values containing no data
     github = {
       repos: {
-        getContent: jest.fn().mockReturnValueOnce(Promise.resolve({
-          data: {
-            content: Buffer.from(`
-              asset: file.zip
-              tap: toolmantim/homebrew-tap-bot-test-project-tap/some-tool.rb
-              template: >
-                class TestTool < Formula
-                  homepage "https://github.com/toolmantim/bksr"
-                  url "\${STABLE_URL}"
-                  version "\${STABLE_VERSION}"
-                  sha256 "\${STABLE_SHA256}"
-              
-                  def install
-                    prefix.install "bksr-macos.zip"
-                  end
-                end
-            `).toString('base64')
-          }
-        }))
-      }
+        getContent: jest.fn().mockImplementationOnce(() => {
+          const notFoundError = new Error('Not found')
+          notFoundError.code = 404
+          return Promise.reject(notFoundError)
+        }),
+        getReleases: jest.fn().mockReturnValueOnce(Promise.resolve({
+          data: []
+        })),
+        updateFile: jest.fn()
+      },
+      // This makes a paginate mock return the data given, similar to the
+      // original implementation
+      paginate: jest.fn().mockImplementation((promise, fn) => promise.then(fn))
     }
 
     robot.auth = () => Promise.resolve(github)
   })
 
-  describe('without a config', () => {
-    beforeEach(() => {
-      const notFoundError = new Error('Not found')
-      notFoundError.code = 404
-      github.repos.getContent = jest.fn().mockReturnValueOnce(Promise.reject(notFoundError))
-    })
+  describe('release', () => {
+    describe('without a config', () => {
+      it('does nothing', async () => {
+        await robot.receive({ event: 'release', payload })
 
-    it('does nothing', async () => {
-      await robot.receive({ event: 'release', payload })
+        expect(github.repos.getContent).toBeCalledWith({
+          owner: 'toolmantim',
+          repo: 'homebrew-tap-bot-test-project',
+          path: '.github/homebrew-release.yml'
+        })
 
-      expect(github.repos.getContent).toBeCalledWith({
-        owner: 'toolmantim',
-        repo: 'homebrew-tap-bot-test-project',
-        path: '.github/homebrew-tap-release.yml'
+        expect(github.repos.getReleases).not.toHaveBeenCalled()
+        expect(github.repos.updateFile).not.toHaveBeenCalled()
       })
     })
-  })
 
-  describe('with a draft release', () => {
-    it('ignores it', async () => {
-      await robot.receive({ event: 'release', payload: draftPayload })
+    describe('with a config', () => {
+      describe('with no releases', () => {
+        it('does nothing', async () => {
+          github.repos.getContent = jest.fn().mockReturnValueOnce(Promise.resolve(config))
 
-      expect(github.repos.getContent).toBeCalledWith({
-        owner: 'toolmantim',
-        repo: 'homebrew-tap-bot-test-project',
-        path: '.github/homebrew-tap-release.yml'
-      })
-    })
-  })
+          await robot.receive({ event: 'release', payload })
 
-  describe('with a config', () => {
-    it('does something', async () => {
-      await robot.receive({ event: 'release', payload })
+          expect(github.repos.getContent).toBeCalledWith({
+            owner: 'toolmantim',
+            repo: 'homebrew-tap-bot-test-project',
+            path: '.github/homebrew-release.yml'
+          })
 
-      expect(github.repos.getContent).toBeCalledWith({
-        owner: 'toolmantim',
-        repo: 'homebrew-tap-bot-test-project',
-        path: '.github/homebrew-tap-release.yml'
+          expect(github.repos.getReleases).toHaveBeenCalled()
+          expect(github.repos.updateFile).not.toHaveBeenCalled()
+        })
       })
     })
   })
