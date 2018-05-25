@@ -38,7 +38,3 @@ npm test
 # Run the bot
 npm start
 ```
-
-## License
-
-See [LICENSE.md]
