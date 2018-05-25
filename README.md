@@ -12,7 +12,7 @@ Once you’ve installed the Brew Bot GitHub App, add a `.github/brew-bot.yml` fi
 asset: app.zip
 tap: org/homebrew-app/app.rb
 template: >
-  class MyTool < Formula
+  class App < Formula
     homepage "https://github.com/org/app"
     url "\${STABLE_URL}"
     version "\${STABLE_VERSION}"
