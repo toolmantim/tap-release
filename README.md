@@ -2,13 +2,11 @@
   <img src="design/logo.svg" alt="Brew Bot Logo" width="300" />
 </h1>
 
-Automatically update your Homebrew tap whenever you cut a new release.
-
-> Built with [probot](https://github.com/probot/probot)
+<p align="center">Automatically update your Homebrew tap whenever you cut a new release. Built with <a href="https://github.com/probot/probot">probot</a></p>
 
 ## Usage
 
-In the repo that creates releases, create a `.github/brew-bot.yml` file:
+Once you’ve installed the Brew Bot GitHub App, add a `.github/brew-bot.yml` file to the repository which creates the releases. For example:
 
 ```yml
 asset: my-tool.zip
@@ -26,7 +24,7 @@ template: >
   end
 ```
 
-Whenever this file is updated, or a new release is published, the formula will be automatically updated based on the template.
+Whenever a new release containing a my-tool.zip asset is published to GitHub, the given tap will be updated based on the template given.
 
 ## Developing
 
@@ -34,6 +32,13 @@ Whenever this file is updated, or a new release is published, the formula will b
 # Install dependencies
 npm install
 
+# Run the tests
+npm test
+
 # Run the bot
 npm start
 ```
+
+## License
+
+See [LICENSE.md]
