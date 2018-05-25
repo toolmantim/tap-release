@@ -69,6 +69,9 @@ describe('homebrew-release-bot', () => {
           expect(github.repos.updateFile).not.toHaveBeenCalled()
         })
       })
+      // TODO: with a draft release, does nothing
+      // TODO: with a release, updates the formula's stable
+      // TODO: with a prerelease, updates the formula's devel
     })
   })
 })
