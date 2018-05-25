@@ -9,22 +9,22 @@
 Once you’ve installed the Brew Bot GitHub App, add a `.github/brew-bot.yml` file to the repository which creates the releases. For example:
 
 ```yml
-asset: my-tool.zip
-tap: my-org/homebrew-my-tool/my-rool.rb
+asset: app.zip
+tap: org/homebrew-app/app.rb
 template: >
   class MyTool < Formula
-    homepage "https://github.com/my-org/my-tool"
+    homepage "https://github.com/org/app"
     url "\${STABLE_URL}"
     version "\${STABLE_VERSION}"
     sha256 "\${STABLE_SHA256}"
 
     def install
-      prefix.install "my-tool"
+      prefix.install "app"
     end
   end
 ```
 
-Whenever a new release containing a my-tool.zip asset is published to GitHub, the given tap will be updated based on the template given.
+Whenever a new release containing a my-tool.zip asset is published to GitHub, the given tap will be updated using the template.
 
 ## Developing
 
