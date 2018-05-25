@@ -14,9 +14,9 @@ tap: org/homebrew-app/app.rb
 template: >
   class App < Formula
     homepage "https://github.com/org/app"
-    url "${STABLE_URL}"
+    url "${STABLE_ASSET_URL}"
     version "${STABLE_VERSION}"
-    sha256 "${STABLE_SHA256}"
+    sha256 "${STABLE_ASSET_SHA256}"
 
     def install
       prefix.install "app"
