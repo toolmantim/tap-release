@@ -14,9 +14,9 @@ tap: org/homebrew-app/app.rb
 template: >
   class App < Formula
     homepage "https://github.com/org/app"
-    version "${STABLE_VERSION}"
-    url "${STABLE_ASSET_URL}"
-    sha256 "${STABLE_ASSET_SHA256}"
+    version "$STABLE_VERSION"
+    url "$STABLE_ASSET_URL"
+    sha256 "$STABLE_ASSET_SHA256"
 
     def install
       prefix.install "app"
@@ -25,6 +25,32 @@ template: >
 ```
 
 Whenever a new release containing a `app.zip` asset is published, Brew Bot will regenerate the tap’s formula file using the template.
+
+## Template variables
+
+You can use the following variables in your formula template:
+
+|Variable|Description|
+|-|-|
+|`$STABLE_VERSION`|The tag name of the newest stable release.|
+|`$STABLE_ASSET_URL`|The download URL of the asset from the newest stable release.|
+|`$STABLE_ASSET_SHA256`|The SHA256 of the asset from the newest stable release.|
+|`$DEVEL_VERSION`|The tag name of the latest pre-release.|
+|`$DEVEL_ASSET_URL`|The download URL of the asset from the newest pre-release.|
+|`$DEVEL_ASSET_SHA256`|The SHA256 of the asset from the newest pre-release.|
+
+## Configuration options
+
+You can configure Brew Bot using the following key in your `.github/brew-bot.yml` file:
+
+|Key|Description|Example|
+|-|-|-|
+|`asset`|Required. Filename of the asset to use from the release.|`app.zip`|
+|`tap`|Required. The path to the Homebrew tap repository that should be updated.|`org/homebrew-app/app.rb`|
+|`template`|Required. The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|<code>class App < Formula<br>&nbsp;&nbsp;version "${STABLE_VERSION}"<br>&nbsp;&nbsp;url "${STABLE_ASSET_URL}"<br>&nbsp;&nbsp;sha256 "${STABLE_ASSET_SHA256}"<br>end</code>|
+|`branches`|Optional. A list of branches that trigger the tap to be updated when the `.github/brew-bot.yml` file is modified. Default is `[master]`.|`[master, add-brew-bot]`|
+
+Brew Bot also supports [Probot Config](https://github.com/probot/probot-config), if you want to store your configuration files in a central repository.
 
 ## Developing
 
@@ -35,6 +61,14 @@ npm install
 # Run the tests
 npm test
 
-# Run the bot
+# Run the bot locally
 npm start
 ```
+
+## Contributing
+
+Third-pary contributions are welcome, and encouraged! If you need help or have a question, create a GitHub issue.
+
+## Deployment
+
+If you want to deploy your own copy of Brew Bot, follow the [Probot Deployment Guide](https://probot.github.io/docs/deployment/).
