@@ -6,7 +6,7 @@
 
 ## Usage
 
-Once you’ve installed the Brew Bot GitHub App, add a `.github/brew-bot.yml` file to the repository which creates the releases. For example:
+After installing the Brew Bot GitHub App, add a `.github/brew-bot.yml` file to the repository where you create new releases. For example:
 
 ```yml
 asset: app.zip
@@ -45,10 +45,10 @@ You can configure Brew Bot using the following key in your `.github/brew-bot.yml
 
 |Key|Required|Description|Example|
 |-|-|-|-|
-|`asset`|Required|Filename of the asset to use from the release.|`app.zip`|
-|`tap`|Required|The path to the Homebrew tap repository that should be updated.|`org/homebrew-app/app.rb`|
-|`template`|Required|The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|<code>class App < Formula<br>&nbsp;&nbsp;version "${STABLE_VERSION}"<br>&nbsp;&nbsp;url "${STABLE_ASSET_URL}"<br>&nbsp;&nbsp;sha256 "${STABLE_ASSET_SHA256}"<br>end</code>|
-|`branches`|Optional|A list of branches that trigger the tap to be updated when the `.github/brew-bot.yml` file is modified. Default is `[master]`.|`[master, add-brew-bot]`|
+|`asset`|Required|Filename of the asset to use from the release.|<pre><code>asset: app.zip</code></pre>|
+|`tap`|Required|The path to the Homebrew tap repository that should be updated.|<pre><code>tap: org/homebrew-app/app.rb</code></pre>|
+|`template`|Required|The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|<pre><code>template: ><br>  class App < Formula<br>    version "${STABLE_VERSION}"<br>    url "${STABLE_ASSET_URL}"<br    sha256 "${STABLE_ASSET_SHA256}"<br>end</code>|
+|`branches`|Optional|A list of branches that trigger the tap to be updated when the `.github/brew-bot.yml` file is modified. Useful if you want to test the bot on a pull request branch. Default is `"master"`.|<pre><code>branches:<br>  - master<br>  - add-brew-bot</code></pre>|
 
 Brew Bot also supports [Probot Config](https://github.com/probot/probot-config), if you want to store your configuration files in a central repository.
 
