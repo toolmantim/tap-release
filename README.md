@@ -16,7 +16,7 @@ tap: my-org/homebrew-app/app.rb
 template: >
   class App < Formula
     desc     "$REPO_DESCRIPTION"
-    homepage "$REPO_URL"
+    homepage "$REPO_WEBITE"
     version  "$STABLE_VERSION"
     url      "$STABLE_ASSET_URL"
     sha256   "$STABLE_ASSET_SHA256"
@@ -49,8 +49,8 @@ You can use any of the following variables in your formula template, and they'll
 
 |Variable|Description|
 |-|-|
-|`$REPO_DESCRIPTION`|Description of the GitHub repository.|
-|`$REPO_URL`|URL of the GitHub repository.|
+|`$REPO_DESCRIPTION`|GitHub repository description.|
+|`$REPO_WEBSITE`|GitHub repository website, or URL if there isn't one.|
 |`$STABLE_VERSION`|Tag name of the latest stable release.|
 |`$STABLE_ASSET_URL`|Download URL of the asset from the latest stable release.|
 |`$STABLE_ASSET_SHA256`|SHA256 of the asset from the latest stable release.|
