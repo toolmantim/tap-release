@@ -1,0 +1,5 @@
+asset: giphy.gif
+tap: org/repo/tool.rb
+template: "A template"
+branches:
+  - some-branch

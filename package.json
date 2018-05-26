@@ -33,5 +33,9 @@
     "env": [
       "jest"
     ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["index.js", "lib/**"]
   }
 }

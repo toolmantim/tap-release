@@ -1,5 +1,5 @@
 {
-  "ref": "refs/heads/master",
+  "ref": "refs/heads/some-branch",
   "before": "0ef7edf5c4b863153df93bd837033d885f6339b8",
   "after": "1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
   "created": false,
@@ -12,7 +12,7 @@
       "id": "1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
       "tree_id": "f011061c665e93f126028ccf54ca6aaa6dbfec48",
       "distinct": true,
-      "message": "Update homebrew-tap-release.yml",
+      "message": "Update brew-bot.yml",
       "timestamp": "2018-05-20T22:43:43+10:00",
       "url": "https://github.com/toolmantim/homebrew-tap-bot-test-project/commit/1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
       "author": {
@@ -32,7 +32,7 @@
 
       ],
       "modified": [
-        ".github/homebrew-tap-release.yml"
+        ".github/brew-bot.yml"
       ]
     }
   ],
@@ -40,7 +40,7 @@
     "id": "1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
     "tree_id": "f011061c665e93f126028ccf54ca6aaa6dbfec48",
     "distinct": true,
-    "message": "Update homebrew-tap-release.yml",
+    "message": "Update brew-bot.yml",
     "timestamp": "2018-05-20T22:43:43+10:00",
     "url": "https://github.com/toolmantim/homebrew-tap-bot-test-project/commit/1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
     "author": {
@@ -60,7 +60,7 @@
 
     ],
     "modified": [
-      ".github/homebrew-tap-release.yml"
+      ".github/brew-bot.yml"
     ]
   },
   "repository": {

@@ -1,0 +1,19 @@
+asset: giphy.gif
+tap: org/repo/tool.rb
+template: >
+  class TestTool < Formula
+    homepage "$GITHUB_WEBSITE"
+    desc "$GITHUB_DESCRIPTION"
+
+    stable do
+      url "$STABLE_URL"
+      version "$STABLE_VERSION"
+      sha256 "$STABLE_SHA256"
+    end
+
+    devel do
+      url "$DEVEL_URL"
+      version "$DEVEL_VERSION"
+      sha256 "$DEVEL_SHA256"
+    end
+  end
