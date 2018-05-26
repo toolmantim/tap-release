@@ -28,27 +28,27 @@ Whenever a new release containing a `app.zip` asset is published, Brew Bot will 
 
 ## Template variables
 
-You can use the following variables in your formula template:
+You can use any of the following variables in your formula template, and they'll be substituted when the tap is regenerated:
 
 |Variable|Description|
 |-|-|
-|`$STABLE_VERSION`|The tag name of the newest stable release.|
-|`$STABLE_ASSET_URL`|The download URL of the asset from the newest stable release.|
-|`$STABLE_ASSET_SHA256`|The SHA256 of the asset from the newest stable release.|
+|`$STABLE_VERSION`|The tag name of the latest stable release.|
+|`$STABLE_ASSET_URL`|The download URL of the asset from the latest stable release.|
+|`$STABLE_ASSET_SHA256`|The SHA256 of the asset from the latest stable release.|
 |`$DEVEL_VERSION`|The tag name of the latest pre-release.|
-|`$DEVEL_ASSET_URL`|The download URL of the asset from the newest pre-release.|
-|`$DEVEL_ASSET_SHA256`|The SHA256 of the asset from the newest pre-release.|
+|`$DEVEL_ASSET_URL`|The download URL of the asset from the latest pre-release.|
+|`$DEVEL_ASSET_SHA256`|The SHA256 of the asset from the latest pre-release.|
 
 ## Configuration options
 
 You can configure Brew Bot using the following key in your `.github/brew-bot.yml` file:
 
-|Key|Description|Example|
-|-|-|-|
-|`asset`|Required. Filename of the asset to use from the release.|`app.zip`|
-|`tap`|Required. The path to the Homebrew tap repository that should be updated.|`org/homebrew-app/app.rb`|
-|`template`|Required. The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|<code>class App < Formula<br>&nbsp;&nbsp;version "${STABLE_VERSION}"<br>&nbsp;&nbsp;url "${STABLE_ASSET_URL}"<br>&nbsp;&nbsp;sha256 "${STABLE_ASSET_SHA256}"<br>end</code>|
-|`branches`|Optional. A list of branches that trigger the tap to be updated when the `.github/brew-bot.yml` file is modified. Default is `[master]`.|`[master, add-brew-bot]`|
+|Key|Required|Description|Example|
+|-|-|-|-|
+|`asset`|Required|Filename of the asset to use from the release.|`app.zip`|
+|`tap`|Required|The path to the Homebrew tap repository that should be updated.|`org/homebrew-app/app.rb`|
+|`template`|Required|The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|<code>class App < Formula<br>&nbsp;&nbsp;version "${STABLE_VERSION}"<br>&nbsp;&nbsp;url "${STABLE_ASSET_URL}"<br>&nbsp;&nbsp;sha256 "${STABLE_ASSET_SHA256}"<br>end</code>|
+|`branches`|Optional|A list of branches that trigger the tap to be updated when the `.github/brew-bot.yml` file is modified. Default is `[master]`.|`[master, add-brew-bot]`|
 
 Brew Bot also supports [Probot Config](https://github.com/probot/probot-config), if you want to store your configuration files in a central repository.
 
