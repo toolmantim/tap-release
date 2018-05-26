@@ -16,6 +16,7 @@
   "dependencies": {
     "compare-versions": "^3.2.1",
     "probot": "^6.0.0",
+    "probot-config": "^0.1.0",
     "request": "^2.87.0"
   },
   "devDependencies": {
