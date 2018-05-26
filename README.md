@@ -27,7 +27,7 @@ template: >
   end
 ```
 
-If a new release was published (e.g. `v4.2.0`), containing a `app.zip` asset, Brew Bot would update the tap forumla in the `my-org/homebrew-app` repo as follows:
+If a new release was published (e.g. `v4.2.0`), containing a `app.zip` asset, Brew Bot would push a commit to the tap formula in the `my-org/homebrew-app` repo updating it to:
 
 ```rb
 class App < Formula
