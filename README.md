@@ -73,6 +73,8 @@ Brew Bot also supports [Probot Config](https://github.com/probot/probot-config),
 
 ## Developing
 
+If you have Node v8+ installed locally, you can run the tests, and a local bot, using the following commands:
+
 ```sh
 # Install dependencies
 npm install
@@ -84,9 +86,16 @@ npm test
 npm start
 ```
 
+If you don't have Node installed, you can use [Docker Compose](https://docs.docker.com/compose/):
+
+```sh
+# Run the tests
+docker-compose run --rm app npm test
+```
+
 ## Contributing
 
-Third-pary contributions are welcome, and encouraged! If you need help or have a question, create a GitHub issue.
+Third-pary contributions are welcome! 🙏🏼 If you need help or have a question, let me know via a GitHub issue.
 
 ## Deployment
 
