@@ -3,7 +3,7 @@ const configName = 'brew-bot.yml'
 
 module.exports = robot => {
   robot.on('release', async context => {
-    run({ robot, context, configName })
+    await run({ robot, context, configName })
   })
 
   robot.on('push', async context => {
@@ -14,7 +14,7 @@ module.exports = robot => {
       commit.removed.includes(configPath) ||
       commit.modified.includes(configPath)
     ))) {
-      run({ robot, context, configName })
+      await run({ robot, context, configName })
     } else {
       robot.log(`Ignoring push that didn't modify ${configPath}`)
     }

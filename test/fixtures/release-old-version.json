@@ -1,75 +1,80 @@
 {
-  "ref": "refs/heads/master",
-  "before": "0ef7edf5c4b863153df93bd837033d885f6339b8",
-  "after": "1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
-  "created": false,
-  "deleted": false,
-  "forced": false,
-  "base_ref": null,
-  "compare": "https://github.com/toolmantim/homebrew-tap-bot-test-project/compare/0ef7edf5c4b8...1496a1f82f32",
-  "commits": [
-    {
-      "id": "1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
-      "tree_id": "f011061c665e93f126028ccf54ca6aaa6dbfec48",
-      "distinct": true,
-      "message": "Update brew-bot.yml",
-      "timestamp": "2018-05-20T22:43:43+10:00",
-      "url": "https://github.com/toolmantim/homebrew-tap-bot-test-project/commit/1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
-      "author": {
-        "name": "Tim Lucas",
-        "email": "t@toolmantim.com",
-        "username": "toolmantim"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "username": "web-flow"
-      },
-      "added": [
-
-      ],
-      "removed": [
-
-      ],
-      "modified": [
-        "some-other-file.md"
-      ]
-    }
-  ],
-  "head_commit": {
-    "id": "1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
-    "tree_id": "f011061c665e93f126028ccf54ca6aaa6dbfec48",
-    "distinct": true,
-    "message": "Update brew-bot.yml",
-    "timestamp": "2018-05-20T22:43:43+10:00",
-    "url": "https://github.com/toolmantim/homebrew-tap-bot-test-project/commit/1496a1f82f32f240f7cbe1a42eb0b0c7a06a5093",
+  "action": "published",
+  "release": {
+    "url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/releases/11047034",
+    "assets_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/releases/11047034/assets",
+    "upload_url": "https://uploads.github.com/repos/toolmantim/homebrew-tap-bot-test-project/releases/11047034/assets{?name,label}",
+    "html_url": "https://github.com/toolmantim/homebrew-tap-bot-test-project/releases/tag/v1.0.1",
+    "id": 11047034,
+    "tag_name": "v1.0.1",
+    "target_commitish": "master",
+    "name": "v1.0.1",
+    "draft": false,
     "author": {
-      "name": "Tim Lucas",
-      "email": "t@toolmantim.com",
-      "username": "toolmantim"
+      "login": "toolmantim",
+      "id": 153,
+      "avatar_url": "https://avatars3.githubusercontent.com/u/153?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/toolmantim",
+      "html_url": "https://github.com/toolmantim",
+      "followers_url": "https://api.github.com/users/toolmantim/followers",
+      "following_url": "https://api.github.com/users/toolmantim/following{/other_user}",
+      "gists_url": "https://api.github.com/users/toolmantim/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/toolmantim/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/toolmantim/subscriptions",
+      "organizations_url": "https://api.github.com/users/toolmantim/orgs",
+      "repos_url": "https://api.github.com/users/toolmantim/repos",
+      "events_url": "https://api.github.com/users/toolmantim/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/toolmantim/received_events",
+      "type": "User",
+      "site_admin": false
     },
-    "committer": {
-      "name": "GitHub",
-      "email": "noreply@github.com",
-      "username": "web-flow"
-    },
-    "added": [
-
+    "prerelease": false,
+    "created_at": "2018-05-17T12:27:31Z",
+    "published_at": "2018-05-17T12:45:20Z",
+    "assets": [
+      {
+        "url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/releases/assets/7209611",
+        "id": 7209611,
+        "name": "giphy.gif",
+        "label": null,
+        "uploader": {
+          "login": "toolmantim",
+          "id": 153,
+          "avatar_url": "https://avatars3.githubusercontent.com/u/153?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/toolmantim",
+          "html_url": "https://github.com/toolmantim",
+          "followers_url": "https://api.github.com/users/toolmantim/followers",
+          "following_url": "https://api.github.com/users/toolmantim/following{/other_user}",
+          "gists_url": "https://api.github.com/users/toolmantim/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/toolmantim/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/toolmantim/subscriptions",
+          "organizations_url": "https://api.github.com/users/toolmantim/orgs",
+          "repos_url": "https://api.github.com/users/toolmantim/repos",
+          "events_url": "https://api.github.com/users/toolmantim/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/toolmantim/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "content_type": "image/gif",
+        "state": "uploaded",
+        "size": 603387,
+        "download_count": 0,
+        "created_at": "2018-05-17T12:44:59Z",
+        "updated_at": "2018-05-17T12:45:16Z",
+        "browser_download_url": "https://github.com/toolmantim/homebrew-tap-bot-test-project/releases/download/v1.0.1/giphy.gif"
+      }
     ],
-    "removed": [
-
-    ],
-    "modified": [
-      "some-other-file.md"
-    ]
+    "tarball_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/tarball/v1.0.1",
+    "zipball_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/zipball/v1.0.1",
+    "body": ""
   },
   "repository": {
     "id": 133810100,
     "name": "homebrew-tap-bot-test-project",
     "full_name": "toolmantim/homebrew-tap-bot-test-project",
     "owner": {
-      "name": "toolmantim",
-      "email": "t@toolmantim.com",
       "login": "toolmantim",
       "id": 153,
       "avatar_url": "https://avatars3.githubusercontent.com/u/153?v=4",
@@ -92,7 +97,7 @@
     "html_url": "https://github.com/toolmantim/homebrew-tap-bot-test-project",
     "description": "What a project",
     "fork": false,
-    "url": "https://github.com/toolmantim/homebrew-tap-bot-test-project",
+    "url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project",
     "forks_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/forks",
     "keys_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/keys{/key_id}",
     "collaborators_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/collaborators{/collaborator}",
@@ -129,15 +134,15 @@
     "labels_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/labels{/name}",
     "releases_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/releases{/id}",
     "deployments_url": "https://api.github.com/repos/toolmantim/homebrew-tap-bot-test-project/deployments",
-    "created_at": 1526560050,
-    "updated_at": "2018-05-20T12:37:47Z",
-    "pushed_at": 1526820223,
+    "created_at": "2018-05-17T12:27:30Z",
+    "updated_at": "2018-05-17T12:27:41Z",
+    "pushed_at": "2018-05-17T12:45:20Z",
     "git_url": "git://github.com/toolmantim/homebrew-tap-bot-test-project.git",
     "ssh_url": "git@github.com:toolmantim/homebrew-tap-bot-test-project.git",
     "clone_url": "https://github.com/toolmantim/homebrew-tap-bot-test-project.git",
     "svn_url": "https://github.com/toolmantim/homebrew-tap-bot-test-project",
-    "homepage": "https://github.com/toolmantim/homebrew-tap-bot-test-project-formula",
-    "size": 1,
+    "homepage": null,
+    "size": 0,
     "stargazers_count": 0,
     "watchers_count": 0,
     "language": null,
@@ -154,13 +159,7 @@
     "forks": 0,
     "open_issues": 0,
     "watchers": 0,
-    "default_branch": "master",
-    "stargazers": 0,
-    "master_branch": "master"
-  },
-  "pusher": {
-    "name": "toolmantim",
-    "email": "t@toolmantim.com"
+    "default_branch": "master"
   },
   "sender": {
     "login": "toolmantim",

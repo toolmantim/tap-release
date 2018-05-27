@@ -2,8 +2,8 @@ asset: giphy.gif
 tap: org/repo/tool.rb
 template: >
   class TestTool < Formula
-    homepage "$GITHUB_WEBSITE"
-    desc "$GITHUB_DESCRIPTION"
+    homepage "$REPO_WEBSITE"
+    desc "$REPO_DESCRIPTION"
 
     stable do
       url "$STABLE_URL"
