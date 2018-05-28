@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="design/logo.svg" alt="Tap Release Bot Logo" width="300" />
+  <img src="design/logo.svg" alt="Tap Release Bot Logo" width="400" />
 </h1>
 
 <p align="center">Automatically update <a href="https://docs.brew.sh/Taps">Homebrew taps</a> when you publish new releases to GitHub. Built with <a href="https://github.com/probot/probot">Probot</a>.</p>
