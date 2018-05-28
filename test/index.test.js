@@ -102,6 +102,51 @@ end
         })
       })
 
+      describe('with a release with npm style URLs', () => {
+        it('updates the tap with the latest release', async () => {
+          const release = require('./fixtures/release').release
+          const prerelease = require('./fixtures/release-prerelease').release
+
+          github.repos.getContent = fn()
+            .mockReturnValueOnce(mockConfig('config-with-npm-style-url.yml'))
+            .mockReturnValueOnce(mockContent('Previous tool.rb content'))
+          github.repos.getReleases = fn().mockReturnValueOnce(Promise.resolve({ data: [ release, prerelease ] }))
+
+          mockDownloadRedirect('https://registry.npmjs.org/proj/-/proj-1.0.2.tgz', 'Asset Contents 1')
+          mockDownloadRedirect('https://registry.npmjs.org/proj/-/proj-2.0.0-beta.tgz', 'Asset Contents 2')
+
+          await robot.receive({ event: 'release', payload: require('./fixtures/release') })
+
+          const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
+          expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
+  homepage "https://github.com/toolmantim/tap-release-test-project"
+  desc "What a project"
+
+  stable do
+    url "https://registry.npmjs.org/proj/-/proj-1.0.2.tgz"
+    version "v1.0.2"
+    sha256 "a1e373046e25f241b5ba8c9914e67622bc7c7c7c3244b2ba4d0b6121be5981ae"
+  end
+
+  devel do
+    url "https://registry.npmjs.org/proj/-/proj-2.0.0-beta.tgz"
+    version "v2.0.0-beta"
+    sha256 "0a01a91e587892e2571f48e96a42e62e34c864862e1881e6ecd2b948db4280c4"
+  end
+end
+`)
+          expect(github.repos.updateFile).toBeCalledWith(
+            expect.objectContaining({
+              'message': 'Updated tool.rb formula',
+              'owner': 'org',
+              'path': 'tool.rb',
+              'repo': 'repo',
+              'sha': '65890df7c8cbbbe01cabd746139dba8dd5e5aa84'
+            })
+          )
+        })
+      })
+
       describe('with a pre-release', () => {
         it('updates the tap', async () => {
           const release = require('./fixtures/release-prerelease').release
