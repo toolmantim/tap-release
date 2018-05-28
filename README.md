@@ -12,9 +12,9 @@
 
 ## Usage
 
-Firstly you’ll need to install the [Tap Release GitHub App](https://github.com/apps/tap-release). This listens out for any releases, or any changes to the configuration.
+Firstly, you’ll need to install the [Tap Release GitHub App](https://github.com/apps/tap-release). This listens out for any releases, or any changes to the configuration.
 
-Secondarly, you add a `.github/tap-release.yml` configuration file to whichver repository has the releases you want to use when updating the tap.
+Then, add a `.github/tap-release.yml` configuration file to the GitHub repository where you publish new releases to.
 
 For example, given the following `.github/tap-release.yml` file in a `my-org/app/app.rb` repository:
 
