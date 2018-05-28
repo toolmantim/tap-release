@@ -17,7 +17,7 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 1. Create a new branch: `git checkout -b my-branch-name`
 1. Make your change, add tests, and make sure the tests still pass
 1. Push to your fork and [submit a pull request][pr]
-1. Pat your self on the back and wait for your pull request to be reviewed and merged.
+1. Give yourself a high five, and wait for your pull request to be reviewed and merged.
 
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
