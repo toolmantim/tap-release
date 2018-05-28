@@ -12,9 +12,11 @@
 
 ## Usage
 
-After installing the [Tap Release GitHub App](https://github.com/apps/tap-release), all you have to do is add a `.github/tap-release.yml` file to the repository where you create new releases.
+Firstly you’ll need to install the [Tap Release GitHub App](https://github.com/apps/tap-release). This listens out for any releases, or any changes to the configuration.
 
-For example, given the following `.github/tap-release.yml` file:
+Secondarly, you add a `.github/tap-release.yml` configuration file to whichver repository has the releases you want to use when updating the tap.
+
+For example, given the following `.github/tap-release.yml` file in a `my-org/app/app.rb` repository:
 
 ```yml
 asset: app.zip
@@ -33,7 +35,7 @@ template: >
   end
 ```
 
-If a new release was published (e.g. `v4.2.0`), containing a `app.zip` asset, Tap Release would push a commit to the tap formula in the `my-org/homebrew-app` repo updating it to:
+When a new release is published to `my-org/app` (e.g. `v4.2.0`), containing a `app.zip` asset, Tap Release would push a commit to the tap formula in the `my-org/homebrew-app` repository updating it to:
 
 ```rb
 class App < Formula
