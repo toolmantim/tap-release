@@ -1,6 +1,7 @@
 version: "3.4"
 services:
   app:
-    build: .
-    environment:
-      - NODE_ENV
+    build:
+      context: .
+      args:
+        - NODE_ENV: development
