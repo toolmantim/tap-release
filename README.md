@@ -83,7 +83,7 @@ If you have Node v8+ installed locally, you can run the tests, and a local bot, 
 
 ```sh
 # Install dependencies
-npm install
+yarn
 
 # Run the tests
 npm test
