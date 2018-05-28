@@ -1,10 +1,10 @@
 {
-  "name": "tap-release-bot",
+  "name": "tap-release",
   "version": "1.0.0",
   "description": "",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
   "license": "ISC",
-  "repository": "https://github.com/toolmantim/tap-release-bot.git",
+  "repository": "https://github.com/toolmantim/tap-release.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
     "start": "PRIVATE_KEY=$(echo $PRIVATE_KEY_BASE64 | base64 -d) probot run ./index.js",

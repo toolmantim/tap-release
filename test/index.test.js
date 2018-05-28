@@ -74,11 +74,11 @@ describe('tap-release-bot', () => {
 
           const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
           expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
-  homepage "https://github.com/toolmantim/tap-release-bot-test-project"
+  homepage "https://github.com/toolmantim/tap-release-test-project"
   desc "What a project"
 
   stable do
-    url "https://github.com/toolmantim/tap-release-bot-test-project/releases/download/v1.0.2/giphy.gif"
+    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy.gif"
     version "v1.0.2"
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
@@ -117,7 +117,7 @@ end
 
           const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
           expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
-  homepage "https://github.com/toolmantim/tap-release-bot-test-project"
+  homepage "https://github.com/toolmantim/tap-release-test-project"
   desc "What a project"
 
   stable do
@@ -127,7 +127,7 @@ end
   end
 
   devel do
-    url "https://github.com/toolmantim/tap-release-bot-test-project/releases/download/v2.0.0-beta/giphy.gif"
+    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v2.0.0-beta/giphy.gif"
     version "v2.0.0-beta"
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
@@ -206,11 +206,11 @@ end
 
         const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
         expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
-  homepage "https://github.com/toolmantim/tap-release-bot-test-project"
+  homepage "https://github.com/toolmantim/tap-release-test-project"
   desc "What a project"
 
   stable do
-    url "https://github.com/toolmantim/tap-release-bot-test-project/releases/download/v1.0.2/giphy.gif"
+    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy.gif"
     version "v1.0.2"
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
