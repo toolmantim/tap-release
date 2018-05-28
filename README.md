@@ -115,7 +115,7 @@ You can configure Tap Release using the following key in your `.github/tap-relea
 |`tap`|Required|The path to the Homebrew tap repository that should be updated.|
 |`template`|Required|The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|
 |`asset`|Optional|Filename of the asset to use from the release.|
-|`url`|Optional|URL pattern to generate the download URLs. Can use `$VERSION` (e.g. `v2.0.0`) and `$VERSION_NUMBER` (e.g. `2.0.0`) in the pattern and they'll be automatically substituted when generating `STABLE_URL` and `DEVEL_URL`.|
+|`url`|Optional|URL pattern to generate the download URLs. Use [URL variables](#url-variables) to insert the values from the release.|
 |`branches`|Optional|A list of branches that trigger the tap to be updated when the `.github/tap-release.yml` file is modified. Useful if you want to test the app on a pull request branch. Default is `"master"`.|
 
 Tap Release also supports [Probot Config](https://github.com/probot/probot-config), if you want to store your configuration files in a central repository.
