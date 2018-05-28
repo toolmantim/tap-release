@@ -1,10 +1,10 @@
 {
-  "name": "brew-bot",
+  "name": "tap-release-bot",
   "version": "1.0.0",
   "description": "",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
   "license": "ISC",
-  "repository": "https://github.com/toolmantim/homebrew-tap-bot.git",
+  "repository": "https://github.com/toolmantim/tap-release-bot.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
     "start": "probot run ./index.js",

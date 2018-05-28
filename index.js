@@ -1,5 +1,5 @@
 const run = require('./lib/run')
-const configName = 'brew-bot.yml'
+const configName = 'tap-release.yml'
 
 module.exports = robot => {
   robot.on('release', async context => {

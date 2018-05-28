@@ -1,14 +1,14 @@
 <h1 align="center">
-  <img src="design/logo.svg" alt="Brew Bot Logo" width="300" />
+  <img src="design/logo.svg" alt="Tap Release Bot Logo" width="300" />
 </h1>
 
 <p align="center">Automatically update <a href="https://docs.brew.sh/Taps">Homebrew taps</a> when you publish new releases to GitHub. Built with <a href="https://github.com/probot/probot">Probot</a>.</p>
 
 ## Usage
 
-After installing the Brew Bot GitHub App, add a `.github/brew-bot.yml` file to the repository where you create new releases.
+After installing the Tap Release Bot GitHub App, add a `.github/tap-release.yml` file to the repository where you create new releases.
 
-For example, given the following `.github/brew-bot.yml` file:
+For example, given the following `.github/tap-release.yml` file:
 
 ```yml
 asset: app.zip
@@ -27,7 +27,7 @@ template: >
   end
 ```
 
-If a new release was published (e.g. `v4.2.0`), containing a `app.zip` asset, Brew Bot would push a commit to the tap formula in the `my-org/homebrew-app` repo updating it to:
+If a new release was published (e.g. `v4.2.0`), containing a `app.zip` asset, Tap Release Bot would push a commit to the tap formula in the `my-org/homebrew-app` repo updating it to:
 
 ```rb
 class App < Formula
@@ -60,16 +60,16 @@ You can use any of the following variables in your formula template, and they'll
 
 ## Configuration options
 
-You can configure Brew Bot using the following key in your `.github/brew-bot.yml` file:
+You can configure Tap Release Bot using the following key in your `.github/tap-release.yml` file:
 
 |Key|Required|Description|
 |-|-|-|
 |`asset`|Required|Filename of the asset to use from the release.|<pre><code>asset: app.zip</code></pre>|
 |`tap`|Required|The path to the Homebrew tap repository that should be updated.|
 |`template`|Required|The template string to use to generate the tap. Use [variables](#variables) to insert the values from the releases.|
-|`branches`|Optional|A list of branches that trigger the tap to be updated when the `.github/brew-bot.yml` file is modified. Useful if you want to test the bot on a pull request branch. Default is `"master"`.|
+|`branches`|Optional|A list of branches that trigger the tap to be updated when the `.github/tap-release.yml` file is modified. Useful if you want to test the bot on a pull request branch. Default is `"master"`.|
 
-Brew Bot also supports [Probot Config](https://github.com/probot/probot-config), if you want to store your configuration files in a central repository.
+Tap Release Bot also supports [Probot Config](https://github.com/probot/probot-config), if you want to store your configuration files in a central repository.
 
 ## Developing
 
@@ -99,4 +99,4 @@ Third-pary contributions are welcome! 🙏🏼 If you need help or have a questi
 
 ## Deployment
 
-If you want to deploy your own copy of Brew Bot, follow the [Probot Deployment Guide](https://probot.github.io/docs/deployment/).
+If you want to deploy your own copy of Tap Release Bot, follow the [Probot Deployment Guide](https://probot.github.io/docs/deployment/).
