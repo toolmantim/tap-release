@@ -4,6 +4,12 @@
 
 <p align="center">Automatically update <a href="https://docs.brew.sh/Taps">Homebrew taps</a> when you publish new releases to GitHub. Built with <a href="https://github.com/probot/probot">Probot</a>.</p>
 
+---
+
+<p align="center"><a href="https://github.com/apps/tap-release-bot"><img src="design/install-button.svg" alt="Install the GitHub App" /></a></p>
+
+---
+
 ## Usage
 
 After installing the Tap Release Bot GitHub App, add a `.github/tap-release.yml` file to the repository where you create new releases.
