@@ -4,4 +4,4 @@ services:
     build:
       context: .
       args:
-        - NODE_ENV: development
+        - NODE_ENV="${NODE_ENV:-development}"

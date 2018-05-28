@@ -20,11 +20,11 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "jest": "^22.4.3",
+    "jest": "^23.0.1",
     "nock": "^9.2.6",
     "nodemon": "^1.17.2",
     "smee-client": "^1.0.1",
-    "standard": "^10.0.3"
+    "standard": "^11.0.1"
   },
   "engines": {
     "node": ">= 8.3.0"
@@ -36,6 +36,9 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": ["index.js", "lib/**"]
+    "collectCoverageFrom": [
+      "index.js",
+      "lib/**"
+    ]
   }
 }
