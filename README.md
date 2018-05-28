@@ -12,7 +12,7 @@
 
 ## Usage
 
-After installing the Tap Release GitHub App, add a `.github/tap-release.yml` file to the repository where you create new releases.
+After installing the [Tap Release GitHub App](https://github.com/apps/tap-release), all you have to do is add a `.github/tap-release.yml` file to the repository where you create new releases.
 
 For example, given the following `.github/tap-release.yml` file:
 
