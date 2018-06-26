@@ -3509,9 +3509,9 @@ probot-config@0.1.0:
   dependencies:
     js-yaml "^3.10.0"
 
-probot@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-6.2.0.tgz#9c6d743dd172553db2bb687907cee11e9dc99b58"
+probot@6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-6.2.1.tgz#1f233e09b219133a3ee907603cc7a4beacaa53ee"
   dependencies:
     "@octokit/rest" "^15.6.0"
     "@octokit/webhooks" "^3.1.1"
