@@ -1,12 +1,12 @@
 const run = require('./lib/run')
 const configName = 'tap-release.yml'
 
-module.exports = robot => {
-  robot.on('release', async context => {
-    await run({ robot, context, configName })
+module.exports = app => {
+  app.on('release', async context => {
+    await run({ app, context, configName })
   })
 
-  robot.on('push', async context => {
+  app.on('push', async context => {
     const configPath = `.github/${configName}`
 
     if (context.payload.commits.some(commit => (
@@ -14,9 +14,9 @@ module.exports = robot => {
       commit.removed.includes(configPath) ||
       commit.modified.includes(configPath)
     ))) {
-      await run({ robot, context, configName })
+      await run({ app, context, configName })
     } else {
-      robot.log(`Ignoring push that didn't modify ${configPath}`)
+      app.log(`Ignoring push that didn't modify ${configPath}`)
     }
   })
 }
