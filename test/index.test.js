@@ -1,19 +1,19 @@
 const nock = require('nock')
-const { createRobot } = require('probot')
+const { Application } = require('probot')
 const { fn } = jest
 
 const { mockError, mockConfig, mockDownloadRedirect, decodeContent, mockContent } = require('./helpers/mock-responses')
-const app = require('../index')
+const tapRelease = require('../index')
 
 nock.disableNetConnect()
 
 describe('tap-release-bot', () => {
-  let robot
+  let app
   let github
 
   beforeEach(() => {
-    robot = createRobot({})
-    app(robot)
+    app = new Application()
+    app.load(tapRelease)
 
     github = {
       // Basic mocks, so we can perform `.not.toHaveBeenCalled()` assertions
@@ -25,14 +25,14 @@ describe('tap-release-bot', () => {
       paginate: fn().mockImplementation((promise, fn) => promise.then(fn))
     }
 
-    robot.auth = () => Promise.resolve(github)
+    app.auth = () => Promise.resolve(github)
   })
 
   describe('release', () => {
     describe('without a config', () => {
       it('does nothing', async () => {
         github.repos.getContent = fn().mockImplementationOnce(() => mockError(404))
-        await robot.receive({ event: 'release', payload: require('./fixtures/release') })
+        await app.receive({ event: 'release', payload: require('./fixtures/release') })
         expect(github.repos.updateFile).not.toHaveBeenCalled()
       })
     })
@@ -42,7 +42,7 @@ describe('tap-release-bot', () => {
         it('does nothing', async () => {
           github.repos.getContent = fn().mockReturnValueOnce(mockConfig('config.yml'))
           github.repos.getReleases = fn().mockReturnValueOnce(Promise.resolve({ data: [] }))
-          await robot.receive({ event: 'release', payload: require('./fixtures/release') })
+          await app.receive({ event: 'release', payload: require('./fixtures/release') })
           expect(github.repos.updateFile).not.toHaveBeenCalled()
         })
       })
@@ -53,7 +53,7 @@ describe('tap-release-bot', () => {
           github.repos.getReleases = fn().mockReturnValueOnce(Promise.resolve({
             data: [ require('./fixtures/release-draft').release ]
           }))
-          await robot.receive({ event: 'release', payload: require('./fixtures/release') })
+          await app.receive({ event: 'release', payload: require('./fixtures/release') })
           expect(github.repos.updateFile).not.toHaveBeenCalled()
         })
       })
@@ -70,7 +70,7 @@ describe('tap-release-bot', () => {
 
           mockDownloadRedirect(release.assets[0].browser_download_url, 'Asset Contents')
 
-          await robot.receive({ event: 'release', payload: require('./fixtures/release') })
+          await app.receive({ event: 'release', payload: require('./fixtures/release') })
 
           const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
           expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
@@ -115,7 +115,7 @@ end
           mockDownloadRedirect('https://registry.npmjs.org/proj/-/proj-1.0.2.tgz', 'Asset Contents 1')
           mockDownloadRedirect('https://registry.npmjs.org/proj/-/proj-2.0.0-beta.tgz', 'Asset Contents 2')
 
-          await robot.receive({ event: 'release', payload: require('./fixtures/release') })
+          await app.receive({ event: 'release', payload: require('./fixtures/release') })
 
           const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
           expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
@@ -158,7 +158,7 @@ end
 
           mockDownloadRedirect(release.assets[0].browser_download_url, 'Asset Contents')
 
-          await robot.receive({ event: 'release', payload: require('./fixtures/release-prerelease') })
+          await app.receive({ event: 'release', payload: require('./fixtures/release-prerelease') })
 
           const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
           expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
@@ -196,7 +196,7 @@ end
     describe('to a non-config file', () => {
       it('does nothing', async () => {
         github.repos.getContent = fn().mockReturnValueOnce(mockConfig('config.yml'))
-        await robot.receive({ event: 'push', payload: require('./fixtures/push-unrelated-change') })
+        await app.receive({ event: 'push', payload: require('./fixtures/push-unrelated-change') })
         expect(github.repos.updateFile).not.toHaveBeenCalled()
       })
     })
@@ -204,7 +204,7 @@ end
     describe('to a non-master branch', () => {
       it('does nothing', async () => {
         github.repos.getContent = fn().mockReturnValueOnce(mockConfig('config.yml'))
-        await robot.receive({ event: 'push', payload: require('./fixtures/push-non-master-branch') })
+        await app.receive({ event: 'push', payload: require('./fixtures/push-non-master-branch') })
         expect(github.repos.updateFile).not.toHaveBeenCalled()
       })
 
@@ -219,7 +219,7 @@ end
 
           mockDownloadRedirect(release.assets[0].browser_download_url, 'Asset Contents')
 
-          await robot.receive({ event: 'push', payload: require('./fixtures/push-non-master-branch') })
+          await app.receive({ event: 'push', payload: require('./fixtures/push-non-master-branch') })
 
           const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
           expect(decodeContent(updateCall.content)).toBe('A template')
@@ -247,7 +247,7 @@ end
 
         mockDownloadRedirect(release.assets[0].browser_download_url, 'Asset Contents')
 
-        await robot.receive({ event: 'push', payload: require('./fixtures/push-config-change') })
+        await app.receive({ event: 'push', payload: require('./fixtures/push-config-change') })
 
         const [ [ updateCall ] ] = github.repos.updateFile.mock.calls
         expect(decodeContent(updateCall.content)).toBe(`class TestTool < Formula
