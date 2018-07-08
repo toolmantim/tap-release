@@ -1,10 +1,10 @@
 {
-  "name": "tap-release",
-  "version": "1.0.0",
-  "description": "",
-  "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
+  "name": "tap-release-github-app",
+  "version": "0.0.1",
+  "description": "A GitHub app that automatically update Homebrew taps when you publish new GitHub releases",
+  "author": "Tim Lucas (http://toolmantim.com)",
   "license": "ISC",
-  "repository": "https://github.com/toolmantim/tap-release.git",
+  "repository": "toolmantim/tap-release",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
     "start": "probot run ./index.js",
@@ -26,7 +26,8 @@
     "nock": "9.4.1",
     "nodemon": "1.17.5",
     "smee-client": "1.0.2",
-    "standard": "11.0.1"
+    "standard": "11.0.1",
+    "postversion": "git push && git push --tags && npm publish && npm run deploy && open \"$(node -e 'console.log(`${require(\"./package.json\").repository.replace(\".git\",\"\")}/releases`)')\""
   },
   "engines": {
     "node": ">= 8.3.0"

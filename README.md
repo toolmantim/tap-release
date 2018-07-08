@@ -10,6 +10,8 @@
 
 ---
 
+[![NPM package](https://img.shields.io/npm/v/tap-release-github-app.svg)](https://www.npmjs.com/package/tap-release-github-app)
+
 ## Usage
 
 Firstly, you’ll need to install the [Tap Release GitHub App](https://github.com/apps/tap-release). This listens out for any releases, or any changes to the configuration.
@@ -141,6 +143,23 @@ If you don't have Node installed, you can use [Docker Compose](https://docs.dock
 # Run the tests
 docker-compose run --rm app npm test
 ```
+
+## Releasing
+
+Run the following command:
+
+```bash
+git checkout master && git pull && npm version [major | minor | patch]
+```
+
+The command does the following:
+
+* Ensures you’re on master and don't have local, un-commited changes
+* Bumps the version number in [package.json](package.json) based on major, minor or patch
+* Runs the `postversion` npm script in [package.json](package.json), which:
+  * Pushes the tag to GitHub
+  * Publishes the npm release
+  * Opens the GitHub releases page so you can publish the release notes
 
 ## Contributing
 
