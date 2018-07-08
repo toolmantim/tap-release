@@ -144,6 +144,16 @@ If you don't have Node installed, you can use [Docker Compose](https://docs.dock
 docker-compose run --rm app npm test
 ```
 
+## Contributing
+
+Third-pary contributions are welcome! 🙏🏼 See [CONTRIBUTING.md](CONTRIBUTING.md) for step-by-step instructions.
+
+If you need help or have a question, let me know via a GitHub issue.
+
+## Deployment
+
+If you want to deploy your own copy of Tap Release, follow the [Probot Deployment Guide](https://probot.github.io/docs/deployment/).
+
 ## Releasing
 
 Run the following command:
@@ -160,13 +170,3 @@ The command does the following:
   * Pushes the tag to GitHub
   * Publishes the npm release
   * Opens the GitHub releases page so you can publish the release notes
-
-## Contributing
-
-Third-pary contributions are welcome! 🙏🏼 See [CONTRIBUTING.md](CONTRIBUTING.md) for step-by-step instructions.
-
-If you need help or have a question, let me know via a GitHub issue.
-
-## Deployment
-
-If you want to deploy your own copy of Tap Release, follow the [Probot Deployment Guide](https://probot.github.io/docs/deployment/).
