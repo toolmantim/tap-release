@@ -13,6 +13,7 @@
     "test": "jest && standard",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage",
     "simulate": "probot simulate release test/fixtures/release.json ./index.js",
+    "postversion": "git push && git push --tags && npm publish && open \"$(node -e 'console.log(`${require(\"./package.json\").repository.replace(\".git\",\"\")}/releases`)')\" && npm run deploy",
     "deploy": "now && now alias"
   },
   "dependencies": {
@@ -26,8 +27,7 @@
     "nock": "9.4.1",
     "nodemon": "1.17.5",
     "smee-client": "1.0.2",
-    "standard": "11.0.1",
-    "postversion": "git push && git push --tags && npm publish && npm run deploy && open \"$(node -e 'console.log(`${require(\"./package.json\").repository.replace(\".git\",\"\")}/releases`)')\""
+    "standard": "11.0.1"
   },
   "engines": {
     "node": ">= 8.3.0"
