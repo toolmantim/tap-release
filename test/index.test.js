@@ -31,7 +31,9 @@ describe('tap-release-bot', () => {
   describe('release', () => {
     describe('without a config', () => {
       it('does nothing', async () => {
-        github.repos.getContent = fn().mockImplementationOnce(() => mockError(404))
+        github.repos.getContent = fn()
+          .mockImplementationOnce(() => mockError(404))
+          .mockImplementationOnce(() => mockError(404))
         await app.receive({ event: 'release', payload: require('./fixtures/release') })
         expect(github.repos.updateFile).not.toHaveBeenCalled()
       })
