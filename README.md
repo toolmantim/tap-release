@@ -26,7 +26,7 @@ tap: my-org/homebrew-app/app.rb
 template: >
   class App < Formula
     desc     "$REPO_DESCRIPTION"
-    homepage "$REPO_WEBITE"
+    homepage "$REPO_WEBSITE"
     version  "$STABLE_VERSION"
     url      "$STABLE_ASSET_URL"
     sha256   "$STABLE_ASSET_SHA256"
@@ -61,7 +61,7 @@ tap: my-org/homebrew-app/app.rb
 template: >
   class App < Formula
     desc     "$REPO_DESCRIPTION"
-    homepage "$REPO_WEBITE"
+    homepage "$REPO_WEBSITE"
     version  "$STABLE_VERSION"
     url      "$STABLE_ASSET_URL"
     sha256   "$STABLE_ASSET_SHA256"
