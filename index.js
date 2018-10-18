@@ -1,4 +1,5 @@
 const run = require('./lib/run')
+const log = require('./lib/log')
 const configName = 'tap-release.yml'
 
 module.exports = app => {
@@ -16,7 +17,7 @@ module.exports = app => {
     ))) {
       await run({ app, context, configName })
     } else {
-      app.log(`Ignoring push that didn't modify ${configPath}`)
+      log({ app, context, message: `Ignoring push that didn't modify ${configPath}` })
     }
   })
 }
