@@ -23,7 +23,7 @@ For example, given the following `.github/tap-release.yml` file in a `my-org/app
 ```yml
 asset: app.zip
 tap: my-org/homebrew-app/app.rb
-template: >
+template: |
   class App < Formula
     desc     "$REPO_DESCRIPTION"
     homepage "$REPO_WEBSITE"
@@ -58,7 +58,7 @@ If you don't use release assets, you can also just use a URL pattern. For exampl
 ```yml
 url: "https://registry.npmjs.org/app/-/app-$VERSION_NUMBER.tgz"
 tap: my-org/homebrew-app/app.rb
-template: >
+template: |
   class App < Formula
     desc     "$REPO_DESCRIPTION"
     homepage "$REPO_WEBSITE"
