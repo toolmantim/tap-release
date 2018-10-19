@@ -80,7 +80,7 @@ describe('tap-release-bot', () => {
   desc "What a project"
 
   stable do
-    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy.gif"
+    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy-1.0.2.gif"
     version "v1.0.2"
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
@@ -174,7 +174,7 @@ end
   end
 
   devel do
-    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v2.0.0-beta/giphy.gif"
+    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v2.0.0-beta/giphy-2.0.0-beta.gif"
     version "v2.0.0-beta"
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
@@ -257,7 +257,7 @@ end
   desc "What a project"
 
   stable do
-    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy.gif"
+    url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy-1.0.2.gif"
     version "v1.0.2"
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end

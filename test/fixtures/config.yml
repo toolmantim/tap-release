@@ -1,4 +1,4 @@
-asset: giphy.gif
+asset: giphy-$VERSION_NUMBER.gif
 tap: org/repo/tool.rb
 template: >
   class TestTool < Formula

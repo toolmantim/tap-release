@@ -99,9 +99,9 @@ You can use any of the following variables in your formula template, and they'll
 |`$DEVEL_ASSET_URL`|Wownload URL of the asset from the latest pre-release.|
 |`$DEVEL_ASSET_SHA256`|SHA256 of the asset from the latest pre-release.|
 
-## URL variables
+## Asset & URL variables
 
-You can use any of the following variables in your URL template, and they'll be substituted for each stable and development release when the tap is regenerated:
+You can use any of the following variables in the `asset` and `url` options, and they'll be substituted for each stable and development release when searching for assets or generating URLs:
 
 |Variable|Description|
 |-|-|
