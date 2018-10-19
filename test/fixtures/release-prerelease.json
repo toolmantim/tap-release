@@ -36,7 +36,7 @@
       {
         "url": "https://api.github.com/repos/toolmantim/tap-release-test-project/releases/assets/7209611",
         "id": 7209611,
-        "name": "giphy.gif",
+        "name": "giphy-2.0.0-beta.gif",
         "label": null,
         "uploader": {
           "login": "toolmantim",
@@ -63,7 +63,7 @@
         "download_count": 0,
         "created_at": "2018-05-17T12:44:59Z",
         "updated_at": "2018-05-17T12:45:16Z",
-        "browser_download_url": "https://github.com/toolmantim/tap-release-test-project/releases/download/v2.0.0-beta/giphy.gif"
+        "browser_download_url": "https://github.com/toolmantim/tap-release-test-project/releases/download/v2.0.0-beta/giphy-2.0.0-beta.gif"
       }
     ],
     "tarball_url": "https://api.github.com/repos/toolmantim/tap-release-test-project/tarball/v2.0.0-beta",
