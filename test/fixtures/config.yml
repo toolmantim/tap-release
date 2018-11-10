@@ -7,13 +7,13 @@ template: >
 
     stable do
       url "$STABLE_URL"
-      version "$STABLE_VERSION"
+      version "$STABLE_VERSION" # $STABLE_VERSION_NUMBER
       sha256 "$STABLE_SHA256"
     end
 
     devel do
       url "$DEVEL_URL"
-      version "$DEVEL_VERSION"
+      version "$DEVEL_VERSION" # $DEVEL_VERSION_NUMBER
       sha256 "$DEVEL_SHA256"
     end
   end

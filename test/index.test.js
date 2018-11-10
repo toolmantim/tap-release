@@ -81,13 +81,13 @@ describe('tap-release-bot', () => {
 
   stable do
     url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy-1.0.2.gif"
-    version "v1.0.2"
+    version "v1.0.2" # 1.0.2
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
 
   devel do
     url "$DEVEL_URL"
-    version "$DEVEL_VERSION"
+    version "$DEVEL_VERSION" # $DEVEL_VERSION_NUMBER
     sha256 "$DEVEL_SHA256"
   end
 end
@@ -126,13 +126,13 @@ end
 
   stable do
     url "https://registry.npmjs.org/proj/-/proj-1.0.2.tgz"
-    version "v1.0.2"
+    version "v1.0.2" # 1.0.2
     sha256 "a1e373046e25f241b5ba8c9914e67622bc7c7c7c3244b2ba4d0b6121be5981ae"
   end
 
   devel do
     url "https://registry.npmjs.org/proj/-/proj-2.0.0-beta.tgz"
-    version "v2.0.0-beta"
+    version "v2.0.0-beta" # 2.0.0-beta
     sha256 "0a01a91e587892e2571f48e96a42e62e34c864862e1881e6ecd2b948db4280c4"
   end
 end
@@ -169,13 +169,13 @@ end
 
   stable do
     url "$STABLE_URL"
-    version "$STABLE_VERSION"
+    version "$STABLE_VERSION" # $STABLE_VERSION_NUMBER
     sha256 "$STABLE_SHA256"
   end
 
   devel do
     url "https://github.com/toolmantim/tap-release-test-project/releases/download/v2.0.0-beta/giphy-2.0.0-beta.gif"
-    version "v2.0.0-beta"
+    version "v2.0.0-beta" # 2.0.0-beta
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
 end
@@ -258,13 +258,13 @@ end
 
   stable do
     url "https://github.com/toolmantim/tap-release-test-project/releases/download/v1.0.2/giphy-1.0.2.gif"
-    version "v1.0.2"
+    version "v1.0.2" # 1.0.2
     sha256 "f37fb1777c7a4f92563f0ada49f738804ff4776cde43d2f6bb819d31a169dd7b"
   end
 
   devel do
     url "$DEVEL_URL"
-    version "$DEVEL_VERSION"
+    version "$DEVEL_VERSION" # $DEVEL_VERSION_NUMBER
     sha256 "$DEVEL_SHA256"
   end
 end

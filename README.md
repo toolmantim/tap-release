@@ -92,11 +92,13 @@ You can use any of the following variables in your formula template, and they'll
 |-|-|
 |`$REPO_DESCRIPTION`|GitHub repository description.|
 |`$REPO_WEBSITE`|GitHub repository website, or URL if there isn't one.|
-|`$STABLE_VERSION`|Tag name of the latest stable release.|
+|`$STABLE_VERSION`|Tag name of the latest stable release (e.g. `v1.0.2`).|
+|`$STABLE_VERSION_NUMBER`|Tag name of the latest stable release, without any preceding `v` (e.g. `1.0.2`).|
 |`$STABLE_ASSET_URL`|Download URL of the asset from the latest stable release.|
 |`$STABLE_ASSET_SHA256`|SHA256 of the asset from the latest stable release.|
-|`$DEVEL_VERSION`|Tag name of the latest pre-release.|
-|`$DEVEL_ASSET_URL`|Wownload URL of the asset from the latest pre-release.|
+|`$DEVEL_VERSION`|Tag name of the latest pre-release (e.g. `v2.0.0-beta.1`).|
+|`$DEVEL_VERSION_NUMBER`|Tag name of the latest pre-release, without any preceding `v` (e.g. `2.0.0-beta.1`).|
+|`$DEVEL_ASSET_URL`|Download URL of the asset from the latest pre-release.|
 |`$DEVEL_ASSET_SHA256`|SHA256 of the asset from the latest pre-release.|
 
 ## Asset & URL variables
@@ -105,7 +107,7 @@ You can use any of the following variables in the `asset` and `url` options, and
 
 |Variable|Description|
 |-|-|
-|`$VERSION`|The version (e.g. `v1.0.2`.|
+|`$VERSION`|The version (e.g. `v1.0.2`).|
 |`$VERSION_NUMBER`|The version without the preceding `v` (e.g. `1.0.2`).|
 
 ## Configuration options
