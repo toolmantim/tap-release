@@ -41,7 +41,7 @@ When a new release is published to `my-org/app` (e.g. `v4.2.0`), containing a `a
 
 ```rb
 class App < Formula
-  desc     "The best app ever."
+  desc     "The best app ever"
   homepage "https://github.com/my-org/app"
   version  "v2.4.0"
   url      "https://github.com/my-org/app/releases/download/v4.2.0/app.zip"
@@ -74,7 +74,7 @@ When a new release is published (e.g. `v4.2.0`), Tap Release would push a commit
 
 ```rb
 class App < Formula
-  desc     "The best app ever."
+  desc     "The best app ever"
   homepage "https://github.com/my-org/app"
   version  "v4.2.0"
   url      "https://registry.npmjs.org/app/-/app-4.2.0.tgz"
