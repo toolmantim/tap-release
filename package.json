@@ -21,7 +21,7 @@
     "compare-versions": "3.4.0",
     "probot": "9.3.1",
     "probot-config": "1.0.0",
-    "request": "2.88.0"
+    "request": "2.88.2"
   },
   "devDependencies": {
     "jest": "24.7.1",
